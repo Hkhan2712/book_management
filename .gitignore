@@ -1,0 +1,15 @@
+# Ignore config files
+config/config.php
+
+# Ignore uploaded images
+public/uploads/
+
+# Ignore system files
+*.log
+*.zip
+*.tar.gz
+*.env
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
