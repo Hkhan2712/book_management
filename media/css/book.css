@@ -21,13 +21,16 @@
 .custom-checkbox {
     position: relative;
 }
-table.table td a.edit {
+td a.view {
+    color: green;
+}
+td a.edit {
     color: #FFC107;
 }
-table.table td a.delete {
+td a.delete {
     color: #F44336;
 }
-table.table td a {
+td a {
     font-weight: bold;
     color: #566787;
     display: inline-block;

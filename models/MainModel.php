@@ -68,12 +68,12 @@ class MainModel {
         return $result;
     }
 
-    public function getRecord($id=null, $field='*', $options=null) {
-        $condition = '';
+    public function getRecord($id=null, $fields='*', $options=null) {
+        $conditions = '';
         if (isset($options['conditions'])) {
-            $conditions .= ' and'.$options['conditions'];
+            $conditions .= ' and ' . $options['conditions'];
         }
-        $query = "SELECT $field FROM $this->table WHERE id = $id".$conditions;
+        $query = "SELECT $fields FROM $this->table WHERE id = $id".$conditions;
         $result = mysqli_query($this->con, $query);
         if ($result) {
             $record = mysqli_fetch_assoc($result);
@@ -113,7 +113,7 @@ class MainModel {
             }
             $setDatas .= $k."='".$v."'";
         }
-        $query = "UPDATE $this->table SET $setdatas WHERE id=$id";
+        $query = "UPDATE $this->table SET $setDatas WHERE id=$id";
         return mysqli_query($this->con, $query) or die("Mysql Error: ". mysqli_error($this->con) . "<hr>\nQuery: $query");
     }
     public static function convertToList($mysqliObject) {
@@ -128,7 +128,7 @@ class MainModel {
         while ($row = mysqli_fetch_array($mysqliObject)) {
             $arrReturn[$row['id']] = $row['name'];
         }
-        return $arrayReturn;
+        return $arrReturn;
     }
 }
 ?>

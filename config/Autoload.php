@@ -4,6 +4,8 @@ function myAutoload($classname) {
         $filename = "controllers/" . $classname . ".php";
     } else if (strpos($classname, "Model") !== false) {
         $filename = "models/" . $classname . ".php";
+    } else if (strpos($classname, "Helpers") !== false) {
+        $filename = "views/helpers/" . $classname . ".php";
     } else if ($classname == "ConnectDb") {
         $filename = "config/" . $classname . ".php";
     } else if (strpos($classname, "Utils") !== false) {

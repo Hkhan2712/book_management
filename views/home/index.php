@@ -1,10 +1,11 @@
-<?php include_once 'view/layout'.$this->layout.'header.php'?>
+<?php include_once 'views/layouts/header.php';?>
 <div>
     <h1>
-        Book Management System
+        Book Management Admin Page: Overview
     </h1>
     <p>
-        Demo CRUD with pure PHP
+        The Book Management Admin Page serves as the central control panel for librarians, administrators, and content managers to efficiently oversee and manage a library's or bookstore's collection of books. This intuitive interface is designed to streamline various tasks related to book cataloging, inventory management, user access, and content updates, ensuring a well-organized and accessible digital library system.
     </p>
+    <a href="<?php echo 'index.php?ctl=Book'?>">List of Book</a>
 </div>
-<?php include_once 'view/layout'.$this->layout.'footer.php'?>
+<?php include_once 'views/layouts/footer.php';?>
