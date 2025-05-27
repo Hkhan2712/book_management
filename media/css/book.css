@@ -1,0 +1,46 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+.table-wrapper {
+    background: #fff;
+    padding: 20px 25px;
+    border-radius: 3px;
+    min-width: 1000px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+.table-title {
+    padding-bottom: 15px;
+    background: #435d7d;
+    color: #fff;
+    padding: 16px 30px;
+    min-width: 100%;
+    margin: -20px -25px 10px;
+    border-radius: 3px 3px 0 0;
+}
+.custom-checkbox {
+    position: relative;
+}
+table.table td a.edit {
+    color: #FFC107;
+}
+table.table td a.delete {
+    color: #F44336;
+}
+table.table td a {
+    font-weight: bold;
+    color: #566787;
+    display: inline-block;
+    text-decoration: none;
+    outline: none !important;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+.hint-text {
+    float: left;
+    margin-top: 10px;
+    font-size: 13px;
+}
