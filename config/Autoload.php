@@ -6,7 +6,10 @@ function myAutoload($classname) {
         $filename = "models/" . $classname . ".php";
     } else if (strpos($classname, "Helpers") !== false) {
         $filename = "views/helpers/" . $classname . ".php";
-    } else if ($classname == "ConnectDb") {
+    } else if (strpos($classname, "Component") !== false) {
+        $comFolder = substr($classname, 0, -strlen('Component'));
+        $filename = "components/".$comFolder."/".$classname.'.php';
+    }  else if ($classname == "ConnectDb") {
         $filename = "config/" . $classname . ".php";
     } else if (strpos($classname, "Utils") !== false) {
         $filename = "utils/" . $classname . ".php";

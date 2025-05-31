@@ -1,5 +1,5 @@
 <?php include_once 'views/layouts/'.$this->layout.'header.php';?>
-<div class = "row row-offcanvas row-offcanvas-left">
+<div class = "row row-offcanvas row-offcanvas-left pt-4">
     <div class="col-xs-12 col-sm-9">
         <div class="table-responsive">
             <table class="table table-bordered table-striped">

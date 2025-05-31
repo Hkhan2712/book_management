@@ -21,15 +21,25 @@ class HtmlHelpers {
         return 'index.php?ctl=' . $options['ctl'] . $act . $params;
     }
     public static function cssHeader() {
-		global $mediaFiles;
-		$cssFiles = "";
-		if(isset($mediaFiles['css']) && count($mediaFiles['css'])) {
-			foreach( $mediaFiles['css'] as $css) {
-				$cssFiles .= '<link href="'.$css.'" rel="stylesheet">';
-			}
-		}
-		return $cssFiles;
-	}
+        global $mediaFiles;
+        $cssFiles = "";
+        if (isset($mediaFiles['css']) && count($mediaFiles['css'])) {
+            foreach ($mediaFiles['css'] as $css) {
+                $cssFiles .= '<link href='.$css.' rel="stylesheet"';
+            }
+        }
+        return $cssFiles;
+    }
+    public static function jsFooter() {
+        global $mediaFiles;
+        $jsFiles = "";
+        if (isset($mediaFiles['js']) && count($mediaFiles['js'])) {
+            foreach ($mediaFiles['js'] as $js) {
+                $jsFiles .= '<script src="'.$js.'"></script>';
+            }
+        }
+        return $jsFiles;
+    }
     public static function header($layout) {
         include_once 'views/layouts/'.$layout.'header.php';
     }

@@ -22,13 +22,31 @@
     position: relative;
 }
 td a.view {
+    border-color: green;
     color: green;
 }
+td a.view:hover {
+    background-color:green;
+    border-color: green;
+    color: #fff;
+}
 td a.edit {
-    color: #FFC107;
+    border-color:#ffc107;
+    color:#FFC107;
+}
+td a.edit:hover {
+    background-color:#FFC107;
+    border-color:#ffc107;
+    color: #fff;
 }
 td a.delete {
-    color: #F44336;
+    border-color:#f44336;
+    color:#F44336;
+}
+td a.delete:hover {
+    background-color:#F44336;
+    border-color:#f44336;
+    color: #fff;
 }
 td a {
     font-weight: bold;

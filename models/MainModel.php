@@ -89,21 +89,31 @@ class MainModel {
         $query = "DELETE FROM $this->table WHERE id = $id".$conditions;
         return mysqli_query($this->con, $query);
     }
+    // public function addRecord($datas) {
+    //     $fields = $values = '';
+    //     $i = 0;
+    //     foreach ($datas as $k => $v) {
+    //         if ($i) {
+    //             $k .= ',';
+    //             $v .= ',';
+    //         }
+    //         $fields .= $k;
+    //         $values .= "'".$v."'";
+    //         $i++; 
+    //     }
+    //     $query = "INSERT INTO $this->table($fields) VALUES ($values)";
+    //     return mysqli_query($this->con, $query);
+    // }
     public function addRecord($datas) {
-        $fields = $values = '';
-        $i = 0;
-        foreach ($datas as $k => $v) {
-            if ($i) {
-                $k .= ',';
-                $v .= ',';
-            }
-            $fields .= $k;
-            $values .= "'".$v."'";
-            $i++; 
-        }
-        $query = "INSERT INTO $this->table($fields) VALUES ($values)";
+        $fields = array_keys($datas);
+        $values = array_map(function($value) {
+            return "'" . addslashes($value) . "'";
+        }, array_values($datas));
+
+        $query = "INSERT INTO {$this->table} (" . implode(",", $fields) . ") VALUES (" . implode(",", $values) . ")";
         return mysqli_query($this->con, $query);
     }
+
     public function editRecord($id, $datas) {
         $setDatas = '';
         $i = 0;
@@ -112,10 +122,12 @@ class MainModel {
                 $setDatas .= ',';
             }
             $setDatas .= $k."='".$v."'";
+            $i++;
         }
         $query = "UPDATE $this->table SET $setDatas WHERE id=$id";
         return mysqli_query($this->con, $query) or die("Mysql Error: ". mysqli_error($this->con) . "<hr>\nQuery: $query");
     }
+
     public static function convertToList($mysqliObject) {
         $arrReturn = [];
         while ($row = mysqli_fetch_array($mysqliObject)) {

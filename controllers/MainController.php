@@ -15,7 +15,7 @@ class MainController {
 
         if (method_exists($this, $this->action)) {
             if (count($_GET) > 2) {
-                if ($this->action == 'view' || $this->action = 'edit' || $this->action == 'del') {
+                if ($this->action == 'view' || $this->action == 'edit' || $this->action == 'del') {
                     $id = '';
                     if (isset($_GET['id'])) $id = $_GET['id'];
                     $this->{$this->action}($id);
