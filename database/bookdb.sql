@@ -1,3 +1,12 @@
+create database bookdb;
+use bookdb;
+create table books (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    isbn VARCHAR(20) UNIQUE,
+    quantity INT DEFAULT 0,
+    photo varchar(255) default null
+); 
 alter table books 
 add column publish_year year;
 INSERT INTO books (title, publish_year, isbn, quantity, photo) VALUES
