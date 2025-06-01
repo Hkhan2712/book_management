@@ -8,23 +8,23 @@
         <div class="table-title bg--blue">
             <div class="row d-flex align-items-center">
                 <div class="col-sm-6">
-                    <h2>Manage <b>Books</b></h2>
+                    <h2>Manage <b>Users</b></h2>
                 </div>
-                <div class="col-sm-6">
-                    <a class="btn btn-success" data-toggle="modal" href="<?php echo HtmlHelpers::url(array('ctl' => 'book', 'act' => 'add'));?>">
+                <div class="col-sm-6 d-flex flex-end">
+                    <!-- <a class="btn btn-success" data-toggle="modal" href="<?php echo HtmlHelpers::url(array('ctl' => 'user', 'act' => 'add'));?>">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-plus" viewBox="0 0 16 16">
                             <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5z"/>
                             <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
                         </svg>
-                        <span>Add New Book</span>
-                    </a>
-                    <a href="#deleteBookModal" class="btn btn-danger" data-toggle="modal">
+                        <span>Add New User</span>
+                    </a> -->
+                    <!-- <a href="#deleteBookModal" class="btn btn-danger" data-toggle="modal">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
                             <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
                         </svg>    
                         <span>Delete</span>
-                    </a>						
+                    </a>						 -->
                 </div>
             </div>
         </div>
@@ -37,11 +37,11 @@
                         </span>
                     </th>
                     <th>#</th>
-                    <th>Title</th>
-                    <th>ISBN</th>
-                    <th>Quantity</th>
-                    <th>Photo</th>
-                    <th>Actions</th>
+                    <th>Fullname</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Country</th>
+                    <th>Avatar</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,12 +55,13 @@
                             </span>
                         </td>
                         <td><?= $row['id'] ?></td>
-                        <td><?= htmlspecialchars($row['title']) ?></td>
-                        <td><?= htmlspecialchars($row['isbn']) ?></td>
-                        <td><?= $row['quantity'] ?></td>
+                        <td><?= htmlspecialchars($row['full_name']) ?></td>
+                        <td><?= htmlspecialchars($row['email']) ?></td>
+                        <td><?= htmlspecialchars($row['gender']) ?></td>
+                        <td><?= htmlspecialchars($row['country']) ?></td>
                         <td>
-                            <?php if ($row['photo']): ?>
-                                <img src="media/uploads/<?= strtolower($this->controller)."/".$row['photo'] ?>" alt="<?= $row['title']?>" width="50">
+                            <?php if ($row['avatar_url']): ?>
+                                <img src="media/uploads/<?= strtolower($this->controller)."/".$row['avatar_url'] ?>" alt="<?= $row['full_name']?>" width="50">
                             <?php else: ?>
                                 <span>No image</span>
                             <?php endif; ?>
@@ -68,7 +69,7 @@
                         <td>
                             <a class="btn btn-outline-info table-link view" role="button" href="<?php echo HtmlHelpers::url(
 								[
-                                    'ctl'=>'book', 
+                                    'ctl'=>'user', 
 									'act'=>'view', 
 									'params'=>array(
 									    'id'=>$row['id']
@@ -81,7 +82,7 @@
                             </a>
                             <a class="btn btn-outline-info table-link edit" data-toggle="modal" href=" <?php echo HtmlHelpers::url(
                                 [
-                                    'ctl' => 'book',
+                                    'ctl' => 'user',
                                     'act' => 'edit',
                                     'params' => array('id' => $row['id'])
                                 ]
@@ -92,7 +93,7 @@
                             </a>
                             <a class="btn btn-outline-info table-link delete" data-toggle="modal" href = "<?php echo HtmlHelpers::url(
                                 [
-                                    'ctl' => 'book',
+                                    'ctl' => 'user',
                                     'act' => 'del',
                                     'params' => array('id' => $row['id'])
                                 ]

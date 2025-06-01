@@ -39,6 +39,7 @@ class SimpleImageComponent {
                     }
                     $simpleImg->resizeToWidth($newW);
                 }
+                echo $ulfd.$newfn;
                 $simpleImg->save($ulfd.$newfn);
                 return $newfn;
             }

@@ -89,21 +89,6 @@ class MainModel {
         $query = "DELETE FROM $this->table WHERE id = $id".$conditions;
         return mysqli_query($this->con, $query);
     }
-    // public function addRecord($datas) {
-    //     $fields = $values = '';
-    //     $i = 0;
-    //     foreach ($datas as $k => $v) {
-    //         if ($i) {
-    //             $k .= ',';
-    //             $v .= ',';
-    //         }
-    //         $fields .= $k;
-    //         $values .= "'".$v."'";
-    //         $i++; 
-    //     }
-    //     $query = "INSERT INTO $this->table($fields) VALUES ($values)";
-    //     return mysqli_query($this->con, $query);
-    // }
     public function addRecord($datas) {
         $fields = array_keys($datas);
         $values = array_map(function($value) {

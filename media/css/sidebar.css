@@ -1,0 +1,13 @@
+.sb--color {
+    background-color: #F5F5F5;
+}
+.sb__color--brown {
+   color: #5C5C5C;
+}
+.nav-item a,
+.navbar-brand {
+    color: #f8f8f8;
+}
+.nav li a {
+    font-size: 1.25rem;
+}

@@ -1,4 +1,5 @@
     </div>
+</div>
 <footer class="py-5 container">
     <div class="row">
         <!-- Column 1 -->

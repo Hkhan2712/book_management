@@ -28,6 +28,7 @@ class BookController extends MainController {
         $book = BookModel::getInstance();
         $record = $book->getRecord($id);
         $this->setProperty('record', $record);
+        echo$_FILES;
 		if(isset($_POST['btn_submit'])) {
 			$bookData = $_POST['data'][$this->controller];
 			if(!empty($bookData['title']))  {
@@ -50,6 +51,7 @@ class BookController extends MainController {
         }
         echo $book->delRecord($id);
         exit();
+        header( "Location: ".HtmlHelpers::url(array('ctl'=>'book')));
     }
 }
 ?>
